@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urinary System Radiography Interactive Exam</title>
+<style>
+:root{
+  --green:#198754;
+  --red:#c62828;
+  --soft-green:#e9f7ef;
+  --soft-red:#fdecec;
+  --border:#d9dee5;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --paper:#ffffff;
+  --bg:#f6f8fb;
+}
+*{box-sizing:border-box}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  padding:24px;
+}
+.container{
+  max-width:980px;
+  margin:0 auto;
+  background:var(--paper);
+  border:1px solid var(--border);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  padding:36px;
+}
+h1,h2,p{margin-top:0}
+.header{
+  border-bottom:2px solid #111827;
+  padding-bottom:14px;
+  margin-bottom:20px;
+}
+.meta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:18px 0 24px;
+}
+.meta div{
+  border:1px solid var(--border);
+  min-height:44px;
+  padding:10px 12px;
+}
+.instructions{
+  border:1px solid var(--border);
+  background:#f9fbfd;
+  padding:14px 16px;
+  margin-bottom:24px;
+  border-radius:10px;
+}
+.section-label{
+  font-size:20px;
+  font-weight:700;
+  margin:24px 0 14px;
+}
+.question{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:16px;
+  background:#fff;
+}
+.topline{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.diff{
+  border:1px solid var(--border);
+  background:#f3f4f6;
+  color:#374151;
+  border-radius:999px;
+  font-size:12px;
+  padding:4px 10px;
+  white-space:nowrap;
+}
+.qtext{
+  font-weight:700;
+  margin-bottom:12px;
+}
+.option{
+  display:block;
+  border-radius:8px;
+  padding:10px 12px;
+  margin:8px 0;
+}
+.option input{ margin-right:8px; }
+.option.correct-option{
+  background:var(--soft-green);
+  outline:1px solid rgba(25,135,84,.35);
+}
+.option.wrong-option{
+  background:var(--soft-red);
+  outline:1px solid rgba(198,40,40,.28);
+}
+.result{
+  margin-top:10px;
+  font-weight:700;
+}
+.correct{ color:var(--green); }
+.wrong{ color:var(--red); }
+.muted{ color:var(--muted); }
+.controls{
+  position:sticky;
+  bottom:0;
+  background:#fff;
+  border-top:2px solid var(--border);
+  margin-top:24px;
+  padding-top:16px;
+}
+button{
+  border:none;
+  border-radius:10px;
+  padding:12px 18px;
+  font-size:15px;
+  cursor:pointer;
+  margin-right:10px;
+}
+.submit-btn{ background:#111827; color:#fff; }
+.reset-btn{ background:#e5e7eb; color:#111827; }
+.scorebox{
+  display:none;
+  margin-top:14px;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  background:#f9fbfd;
+  border-radius:10px;
+  font-weight:700;
+}
+@media print{
+  body{padding:0;background:#fff}
+  .container{box-shadow:none;border:none;max-width:none}
+  .controls{display:none}
+  .question{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Urinary System Radiography Exam</h1>
+    <h2>Interactive MCQ – 80 Questions</h2>
+  </div>
+
+  <div class="meta">
+    <div><strong>Name:</strong></div>
+    <div><strong>Student ID:</strong></div>
+    <div><strong>Date:</strong></div>
+    <div><strong>Section:</strong></div>
+  </div>
+
+  <div class="instructions">
+    <strong>Instructions</strong><br>
+    • Answer all questions.<br>
+    • Mixed easy, medium, and hard questions are included.<br>
+    • Click <strong>Submit Exam</strong> to reveal the correct answers.<br>
+    • Correct choices turn <span class="correct">green</span> and wrong selections turn <span class="wrong">red</span>.<br>
+    • The correct answer letter also appears after submission.
+  </div>
+
+  <div class="section-label">Multiple Choice Questions</div>
+  <form id="quiz">
+
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q1. Where are the kidneys located?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="0" data-opt="a"><input type="radio" name="q0" value="a">A. Intraperitoneal</label>
+      <label class="option" data-q="0" data-opt="b"><input type="radio" name="q0" value="b">B. Retroperitoneal</label>
+      <label class="option" data-q="0" data-opt="c"><input type="radio" name="q0" value="c">C. Pelvic cavity</label>
+      <label class="option" data-q="0" data-opt="d"><input type="radio" name="q0" value="d">D. Thoracic cavity</label>
+
+      <div id="result0" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q2. The upper pole of the kidney is approximately at which vertebral level?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="1" data-opt="a"><input type="radio" name="q1" value="a">A. L1</label>
+      <label class="option" data-q="1" data-opt="b"><input type="radio" name="q1" value="b">B. T12</label>
+      <label class="option" data-q="1" data-opt="c"><input type="radio" name="q1" value="c">C. L3</label>
+      <label class="option" data-q="1" data-opt="d"><input type="radio" name="q1" value="d">D. T10</label>
+
+      <div id="result1" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q3. The lower pole of the kidney is approximately at which vertebral level?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="2" data-opt="a"><input type="radio" name="q2" value="a">A. T12</label>
+      <label class="option" data-q="2" data-opt="b"><input type="radio" name="q2" value="b">B. L5</label>
+      <label class="option" data-q="2" data-opt="c"><input type="radio" name="q2" value="c">C. L3</label>
+      <label class="option" data-q="2" data-opt="d"><input type="radio" name="q2" value="d">D. L1</label>
+
+      <div id="result2" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q4. Which kidney is normally lower?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="3" data-opt="a"><input type="radio" name="q3" value="a">A. Left kidney</label>
+      <label class="option" data-q="3" data-opt="b"><input type="radio" name="q3" value="b">B. Both are equal</label>
+      <label class="option" data-q="3" data-opt="c"><input type="radio" name="q3" value="c">C. Right kidney</label>
+      <label class="option" data-q="3" data-opt="d"><input type="radio" name="q3" value="d">D. Depends on respiration only</label>
+
+      <div id="result3" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q5. Average urine output per day is:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="4" data-opt="a"><input type="radio" name="q4" value="a">A. 250–500 mL</label>
+      <label class="option" data-q="4" data-opt="b"><input type="radio" name="q4" value="b">B. 1–2 L</label>
+      <label class="option" data-q="4" data-opt="c"><input type="radio" name="q4" value="c">C. 3–4 L</label>
+      <label class="option" data-q="4" data-opt="d"><input type="radio" name="q4" value="d">D. 5–6 L</label>
+
+      <div id="result4" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q6. Which is a normal function of the kidneys?</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="5" data-opt="a"><input type="radio" name="q5" value="a">A. Produce bile</label>
+      <label class="option" data-q="5" data-opt="b"><input type="radio" name="q5" value="b">B. Remove waste and regulate fluid/electrolytes</label>
+      <label class="option" data-q="5" data-opt="c"><input type="radio" name="q5" value="c">C. Store urine</label>
+      <label class="option" data-q="5" data-opt="d"><input type="radio" name="q5" value="d">D. Secrete insulin</label>
+
+      <div id="result5" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q7. The ureter is divided into which three parts?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="6" data-opt="a"><input type="radio" name="q6" value="a">A. Renal, vesical, urethral</label>
+      <label class="option" data-q="6" data-opt="b"><input type="radio" name="q6" value="b">B. Abdominal, pelvic, intramural</label>
+      <label class="option" data-q="6" data-opt="c"><input type="radio" name="q6" value="c">C. Upper, middle, distal only</label>
+      <label class="option" data-q="6" data-opt="d"><input type="radio" name="q6" value="d">D. Cortical, medullary, pelvic</label>
+
+      <div id="result6" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q8. The ureter enters the bladder at the level of the:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="7" data-opt="a"><input type="radio" name="q7" value="a">A. Iliac crest</label>
+      <label class="option" data-q="7" data-opt="b"><input type="radio" name="q7" value="b">B. ASIS</label>
+      <label class="option" data-q="7" data-opt="c"><input type="radio" name="q7" value="c">C. Pubic symphysis</label>
+      <label class="option" data-q="7" data-opt="d"><input type="radio" name="q7" value="d">D. Ischial spine</label>
+
+      <div id="result7" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q9. The bladder lies:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="8" data-opt="a"><input type="radio" name="q8" value="a">A. Anterior and inferior to pubic symphysis</label>
+      <label class="option" data-q="8" data-opt="b"><input type="radio" name="q8" value="b">B. Posterior and superior to pubic symphysis</label>
+      <label class="option" data-q="8" data-opt="c"><input type="radio" name="q8" value="c">C. Inside the ureter</label>
+      <label class="option" data-q="8" data-opt="d"><input type="radio" name="q8" value="d">D. At the level of T12</label>
+
+      <div id="result8" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q10. The urethral orifice is located in the:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="9" data-opt="a"><input type="radio" name="q9" value="a">A. Renal pelvis</label>
+      <label class="option" data-q="9" data-opt="b"><input type="radio" name="q9" value="b">B. Prostate only</label>
+      <label class="option" data-q="9" data-opt="c"><input type="radio" name="q9" value="c">C. Bladder neck</label>
+      <label class="option" data-q="9" data-opt="d"><input type="radio" name="q9" value="d">D. Major calyx</label>
+
+      <div id="result9" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q11. The right kidney is slightly lower mainly because of the:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="10" data-opt="a"><input type="radio" name="q10" value="a">A. Spleen</label>
+      <label class="option" data-q="10" data-opt="b"><input type="radio" name="q10" value="b">B. Liver</label>
+      <label class="option" data-q="10" data-opt="c"><input type="radio" name="q10" value="c">C. Pancreas</label>
+      <label class="option" data-q="10" data-opt="d"><input type="radio" name="q10" value="d">D. Duodenum</label>
+
+      <div id="result10" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q12. The ureter lies ______ to the psoas muscle.</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="11" data-opt="a"><input type="radio" name="q11" value="a">A. Anterior</label>
+      <label class="option" data-q="11" data-opt="b"><input type="radio" name="q11" value="b">B. Posterior</label>
+      <label class="option" data-q="11" data-opt="c"><input type="radio" name="q11" value="c">C. Medial</label>
+      <label class="option" data-q="11" data-opt="d"><input type="radio" name="q11" value="d">D. Inferior</label>
+
+      <div id="result11" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q13. Relative to the transverse processes of the lumbar spine, the ureter lies:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="12" data-opt="a"><input type="radio" name="q12" value="a">A. Posterior and medial</label>
+      <label class="option" data-q="12" data-opt="b"><input type="radio" name="q12" value="b">B. Anterior and lateral</label>
+      <label class="option" data-q="12" data-opt="c"><input type="radio" name="q12" value="c">C. Only lateral</label>
+      <label class="option" data-q="12" data-opt="d"><input type="radio" name="q12" value="d">D. Directly superior</label>
+
+      <div id="result12" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q14. The ureters enter the bladder on its:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="13" data-opt="a"><input type="radio" name="q13" value="a">A. Anterior surface</label>
+      <label class="option" data-q="13" data-opt="b"><input type="radio" name="q13" value="b">B. Inferior apex</label>
+      <label class="option" data-q="13" data-opt="c"><input type="radio" name="q13" value="c">C. Posterolateral superior surface</label>
+      <label class="option" data-q="13" data-opt="d"><input type="radio" name="q13" value="d">D. Superior dome centrally</label>
+
+      <div id="result13" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q15. The adrenal glands are located around the level of:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="14" data-opt="a"><input type="radio" name="q14" value="a">A. T11</label>
+      <label class="option" data-q="14" data-opt="b"><input type="radio" name="q14" value="b">B. L3</label>
+      <label class="option" data-q="14" data-opt="c"><input type="radio" name="q14" value="c">C. T12</label>
+      <label class="option" data-q="14" data-opt="d"><input type="radio" name="q14" value="d">D. S1</label>
+
+      <div id="result14" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q16. The shapes of the adrenal glands are best described as:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="15" data-opt="a"><input type="radio" name="q15" value="a">A. Right semilunar, left triangular</label>
+      <label class="option" data-q="15" data-opt="b"><input type="radio" name="q15" value="b">B. Both triangular</label>
+      <label class="option" data-q="15" data-opt="c"><input type="radio" name="q15" value="c">C. Right triangular, left semilunar</label>
+      <label class="option" data-q="15" data-opt="d"><input type="radio" name="q15" value="d">D. Both round</label>
+
+      <div id="result15" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q17. Can the adrenal glands usually be seen on plain radiographs?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="16" data-opt="a"><input type="radio" name="q16" value="a">A. Yes, clearly</label>
+      <label class="option" data-q="16" data-opt="b"><input type="radio" name="q16" value="b">B. Only in children</label>
+      <label class="option" data-q="16" data-opt="c"><input type="radio" name="q16" value="c">C. Only after contrast</label>
+      <label class="option" data-q="16" data-opt="d"><input type="radio" name="q16" value="d">D. No</label>
+
+      <div id="result16" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q18. The adrenal medulla secretes:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="17" data-opt="a"><input type="radio" name="q17" value="a">A. Cortical hormones</label>
+      <label class="option" data-q="17" data-opt="b"><input type="radio" name="q17" value="b">B. Epinephrine</label>
+      <label class="option" data-q="17" data-opt="c"><input type="radio" name="q17" value="c">C. Insulin</label>
+      <label class="option" data-q="17" data-opt="d"><input type="radio" name="q17" value="d">D. Aldosterone only</label>
+
+      <div id="result17" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q19. The adrenal cortex secretes:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="18" data-opt="a"><input type="radio" name="q18" value="a">A. Cortical hormones</label>
+      <label class="option" data-q="18" data-opt="b"><input type="radio" name="q18" value="b">B. Epinephrine</label>
+      <label class="option" data-q="18" data-opt="c"><input type="radio" name="q18" value="c">C. Contrast media</label>
+      <label class="option" data-q="18" data-opt="d"><input type="radio" name="q18" value="d">D. Urine</label>
+
+      <div id="result18" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q20. The male urethra is approximately:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="19" data-opt="a"><input type="radio" name="q19" value="a">A. 4 cm long</label>
+      <label class="option" data-q="19" data-opt="b"><input type="radio" name="q19" value="b">B. 8 cm long</label>
+      <label class="option" data-q="19" data-opt="c"><input type="radio" name="q19" value="c">C. 15–20 cm long</label>
+      <label class="option" data-q="19" data-opt="d"><input type="radio" name="q19" value="d">D. 25–30 cm long</label>
+
+      <div id="result19" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q21. The female urethra is approximately:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="20" data-opt="a"><input type="radio" name="q20" value="a">A. 2 cm long</label>
+      <label class="option" data-q="20" data-opt="b"><input type="radio" name="q20" value="b">B. 4 cm long</label>
+      <label class="option" data-q="20" data-opt="c"><input type="radio" name="q20" value="c">C. 10 cm long</label>
+      <label class="option" data-q="20" data-opt="d"><input type="radio" name="q20" value="d">D. 15 cm long</label>
+
+      <div id="result20" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q22. The male urethra extends from the bladder through the ______ to the external orifice.</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="21" data-opt="a"><input type="radio" name="q21" value="a">A. Ureter</label>
+      <label class="option" data-q="21" data-opt="b"><input type="radio" name="q21" value="b">B. Prostate gland</label>
+      <label class="option" data-q="21" data-opt="c"><input type="radio" name="q21" value="c">C. Renal pelvis</label>
+      <label class="option" data-q="21" data-opt="d"><input type="radio" name="q21" value="d">D. Seminal vesicle</label>
+
+      <div id="result21" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q23. The renal cortex is the:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="22" data-opt="a"><input type="radio" name="q22" value="a">A. Inner collecting system</label>
+      <label class="option" data-q="22" data-opt="b"><input type="radio" name="q22" value="b">B. Outer layer</label>
+      <label class="option" data-q="22" data-opt="c"><input type="radio" name="q22" value="c">C. Ureteral opening</label>
+      <label class="option" data-q="22" data-opt="d"><input type="radio" name="q22" value="d">D. Bladder wall</label>
+
+      <div id="result22" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q24. The renal medulla is the:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="23" data-opt="a"><input type="radio" name="q23" value="a">A. Outer fibrous capsule</label>
+      <label class="option" data-q="23" data-opt="b"><input type="radio" name="q23" value="b">B. Inner region containing pyramids</label>
+      <label class="option" data-q="23" data-opt="c"><input type="radio" name="q23" value="c">C. Bladder trigone</label>
+      <label class="option" data-q="23" data-opt="d"><input type="radio" name="q23" value="d">D. Distal ureter</label>
+
+      <div id="result23" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q25. Urine flow through the collecting system is:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="24" data-opt="a"><input type="radio" name="q24" value="a">A. Major calyx → minor calyx → pelvis → ureter</label>
+      <label class="option" data-q="24" data-opt="b"><input type="radio" name="q24" value="b">B. Minor calyx → major calyx → pelvis → ureter</label>
+      <label class="option" data-q="24" data-opt="c"><input type="radio" name="q24" value="c">C. Pelvis → minor calyx → major calyx → ureter</label>
+      <label class="option" data-q="24" data-opt="d"><input type="radio" name="q24" value="d">D. Minor calyx → pelvis → major calyx → ureter</label>
+
+      <div id="result24" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q26. A plain KUB is mainly used to assess:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="25" data-opt="a"><input type="radio" name="q25" value="a">A. Cardiac size</label>
+      <label class="option" data-q="25" data-opt="b"><input type="radio" name="q25" value="b">B. Kidney size, shape, position, and stones/calcifications</label>
+      <label class="option" data-q="25" data-opt="c"><input type="radio" name="q25" value="c">C. Lung bases only</label>
+      <label class="option" data-q="25" data-opt="d"><input type="radio" name="q25" value="d">D. Brain ventricles</label>
+
+      <div id="result25" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q27. A phlebolith is a:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="26" data-opt="a"><input type="radio" name="q26" value="a">A. Stone in the renal pelvis</label>
+      <label class="option" data-q="26" data-opt="b"><input type="radio" name="q26" value="b">B. Rounded calcification within a vein</label>
+      <label class="option" data-q="26" data-opt="c"><input type="radio" name="q26" value="c">C. Calcified adrenal gland</label>
+      <label class="option" data-q="26" data-opt="d"><input type="radio" name="q26" value="d">D. Bladder diverticulum</label>
+
+      <div id="result26" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q28. An upright urinary projection may be used to demonstrate:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="27" data-opt="a"><input type="radio" name="q27" value="a">A. Mobility of the kidneys</label>
+      <label class="option" data-q="27" data-opt="b"><input type="radio" name="q27" value="b">B. Adrenal enlargement only</label>
+      <label class="option" data-q="27" data-opt="c"><input type="radio" name="q27" value="c">C. Gallbladder contraction</label>
+      <label class="option" data-q="27" data-opt="d"><input type="radio" name="q27" value="d">D. Nephron anatomy</label>
+
+      <div id="result27" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q29. Antegrade urography usually introduces contrast:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="28" data-opt="a"><input type="radio" name="q28" value="a">A. Orally</label>
+      <label class="option" data-q="28" data-opt="b"><input type="radio" name="q28" value="b">B. Through the rectum</label>
+      <label class="option" data-q="28" data-opt="c"><input type="radio" name="q28" value="c">C. Intravenously in a physiologic direction</label>
+      <label class="option" data-q="28" data-opt="d"><input type="radio" name="q28" value="d">D. By bladder catheter</label>
+
+      <div id="result28" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q30. Retrograde urography introduces contrast by:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="29" data-opt="a"><input type="radio" name="q29" value="a">A. Catheter and is non-physiologic</label>
+      <label class="option" data-q="29" data-opt="b"><input type="radio" name="q29" value="b">B. IV bolus and is physiologic</label>
+      <label class="option" data-q="29" data-opt="c"><input type="radio" name="q29" value="c">C. Oral administration</label>
+      <label class="option" data-q="29" data-opt="d"><input type="radio" name="q29" value="d">D. Intramuscular injection</label>
+
+      <div id="result29" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q31. Cystography evaluates the:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="30" data-opt="a"><input type="radio" name="q30" value="a">A. Kidney cortex</label>
+      <label class="option" data-q="30" data-opt="b"><input type="radio" name="q30" value="b">B. Bladder</label>
+      <label class="option" data-q="30" data-opt="c"><input type="radio" name="q30" value="c">C. Adrenal glands</label>
+      <label class="option" data-q="30" data-opt="d"><input type="radio" name="q30" value="d">D. Psoas muscle</label>
+
+      <div id="result30" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q32. Cystoureterography demonstrates the:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="31" data-opt="a"><input type="radio" name="q31" value="a">A. Bladder and ureter</label>
+      <label class="option" data-q="31" data-opt="b"><input type="radio" name="q31" value="b">B. Ureter and kidney only</label>
+      <label class="option" data-q="31" data-opt="c"><input type="radio" name="q31" value="c">C. Bladder and urethra</label>
+      <label class="option" data-q="31" data-opt="d"><input type="radio" name="q31" value="d">D. Nephron and pelvis</label>
+
+      <div id="result31" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q33. Cystourethrography demonstrates the:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="32" data-opt="a"><input type="radio" name="q32" value="a">A. Bladder and urethra</label>
+      <label class="option" data-q="32" data-opt="b"><input type="radio" name="q32" value="b">B. Only the ureter</label>
+      <label class="option" data-q="32" data-opt="c"><input type="radio" name="q32" value="c">C. Kidney and bladder</label>
+      <label class="option" data-q="32" data-opt="d"><input type="radio" name="q32" value="d">D. Only adrenal glands</label>
+
+      <div id="result32" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q34. Dietary preparation before many urinary studies is:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="33" data-opt="a"><input type="radio" name="q33" value="a">A. High residue diet for 3 days</label>
+      <label class="option" data-q="33" data-opt="b"><input type="radio" name="q33" value="b">B. Low residue diet for 1–2 days</label>
+      <label class="option" data-q="33" data-opt="c"><input type="radio" name="q33" value="c">C. No preparation ever</label>
+      <label class="option" data-q="33" data-opt="d"><input type="radio" name="q33" value="d">D. High protein diet</label>
+
+      <div id="result33" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q35. A laxative is commonly taken:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="34" data-opt="a"><input type="radio" name="q34" value="a">A. One week before</label>
+      <label class="option" data-q="34" data-opt="b"><input type="radio" name="q34" value="b">B. Immediately after contrast</label>
+      <label class="option" data-q="34" data-opt="c"><input type="radio" name="q34" value="c">C. The day before the exam</label>
+      <label class="option" data-q="34" data-opt="d"><input type="radio" name="q34" value="d">D. Only during the exam</label>
+
+      <div id="result34" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q36. Patients are usually kept NPO:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="35" data-opt="a"><input type="radio" name="q35" value="a">A. After breakfast</label>
+      <label class="option" data-q="35" data-opt="b"><input type="radio" name="q35" value="b">B. After midnight</label>
+      <label class="option" data-q="35" data-opt="c"><input type="radio" name="q35" value="c">C. Only 2 hours before</label>
+      <label class="option" data-q="35" data-opt="d"><input type="radio" name="q35" value="d">D. Not required</label>
+
+      <div id="result35" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q37. Why is dehydration undesirable before IVU?</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="36" data-opt="a"><input type="radio" name="q36" value="a">A. It improves the pyelogram too much</label>
+      <label class="option" data-q="36" data-opt="b"><input type="radio" name="q36" value="b">B. It increases risk of renal failure</label>
+      <label class="option" data-q="36" data-opt="c"><input type="radio" name="q36" value="c">C. It prevents contrast excretion completely in all cases</label>
+      <label class="option" data-q="36" data-opt="d"><input type="radio" name="q36" value="d">D. It causes bladder rupture</label>
+
+      <div id="result36" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q38. Why is bowel preparation usually not attempted in infants and children?</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="37" data-opt="a"><input type="radio" name="q37" value="a">A. They do not have bowel gas</label>
+      <label class="option" data-q="37" data-opt="b"><input type="radio" name="q37" value="b">B. Risk of dehydration</label>
+      <label class="option" data-q="37" data-opt="c"><input type="radio" name="q37" value="c">C. Their kidneys are not retroperitoneal</label>
+      <label class="option" data-q="37" data-opt="d"><input type="radio" name="q37" value="d">D. Because compression is impossible</label>
+
+      <div id="result37" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q39. A prone position can help because it:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="38" data-opt="a"><input type="radio" name="q38" value="a">A. Moves bowel gas away from pelvicalyceal structures</label>
+      <label class="option" data-q="38" data-opt="b"><input type="radio" name="q38" value="b">B. Always improves bladder detail only</label>
+      <label class="option" data-q="38" data-opt="c"><input type="radio" name="q38" value="c">C. Eliminates the need for contrast</label>
+      <label class="option" data-q="38" data-opt="d"><input type="radio" name="q38" value="d">D. Raises the kidneys into the thorax</label>
+
+      <div id="result38" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q40. Dehydration may produce a more ______ pyelogram.</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="39" data-opt="a"><input type="radio" name="q39" value="a">A. Dilute</label>
+      <label class="option" data-q="39" data-opt="b"><input type="radio" name="q39" value="b">B. Dense</label>
+      <label class="option" data-q="39" data-opt="c"><input type="radio" name="q39" value="c">C. Invisible</label>
+      <label class="option" data-q="39" data-opt="d"><input type="radio" name="q39" value="d">D. Delayed only</label>
+
+      <div id="result39" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q41. Hydration may result in a ______ image because of urine/contrast dilution.</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="40" data-opt="a"><input type="radio" name="q40" value="a">A. Denser</label>
+      <label class="option" data-q="40" data-opt="b"><input type="radio" name="q40" value="b">B. Sharper</label>
+      <label class="option" data-q="40" data-opt="c"><input type="radio" name="q40" value="c">C. Diluted</label>
+      <label class="option" data-q="40" data-opt="d"><input type="radio" name="q40" value="d">D. Magnified</label>
+
+      <div id="result40" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q42. Common needle sizes mentioned for injection include:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="41" data-opt="a"><input type="radio" name="q41" value="a">A. 8–10 G only</label>
+      <label class="option" data-q="41" data-opt="b"><input type="radio" name="q41" value="b">B. 16–18 G or 19–22 G</label>
+      <label class="option" data-q="41" data-opt="c"><input type="radio" name="q41" value="c">C. 24–26 G only</label>
+      <label class="option" data-q="41" data-opt="d"><input type="radio" name="q41" value="d">D. 30–32 G only</label>
+
+      <div id="result41" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q43. Which of the following is an injection supply?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="42" data-opt="a"><input type="radio" name="q42" value="a">A. Tourniquet</label>
+      <label class="option" data-q="42" data-opt="b"><input type="radio" name="q42" value="b">B. Lead apron only</label>
+      <label class="option" data-q="42" data-opt="c"><input type="radio" name="q42" value="c">C. Cervical collar</label>
+      <label class="option" data-q="42" data-opt="d"><input type="radio" name="q42" value="d">D. Barium cup</label>
+
+      <div id="result42" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q44. Before injection, the radiographer should check:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="43" data-opt="a"><input type="radio" name="q43" value="a">A. Allergy history, labs, and possible pregnancy</label>
+      <label class="option" data-q="43" data-opt="b"><input type="radio" name="q43" value="b">B. Blood group only</label>
+      <label class="option" data-q="43" data-opt="c"><input type="radio" name="q43" value="c">C. Lung function only</label>
+      <label class="option" data-q="43" data-opt="d"><input type="radio" name="q43" value="d">D. Visual acuity only</label>
+
+      <div id="result43" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q45. Why should the patient be monitored after iodinated contrast injection?</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="44" data-opt="a"><input type="radio" name="q44" value="a">A. To check bowel movement</label>
+      <label class="option" data-q="44" data-opt="b"><input type="radio" name="q44" value="b">B. Because adverse reactions may occur</label>
+      <label class="option" data-q="44" data-opt="c"><input type="radio" name="q44" value="c">C. To prevent nephrogram formation</label>
+      <label class="option" data-q="44" data-opt="d"><input type="radio" name="q44" value="d">D. To reduce motion blur</label>
+
+      <div id="result44" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q46. An example of nonionic iodinated contrast media is:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="45" data-opt="a"><input type="radio" name="q45" value="a">A. Barium sulfate</label>
+      <label class="option" data-q="45" data-opt="b"><input type="radio" name="q45" value="b">B. Iohexol</label>
+      <label class="option" data-q="45" data-opt="c"><input type="radio" name="q45" value="c">C. Gadolinium only</label>
+      <label class="option" data-q="45" data-opt="d"><input type="radio" name="q45" value="d">D. Air</label>
+
+      <div id="result45" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q47. A typical adult contrast dose listed is approximately:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="46" data-opt="a"><input type="radio" name="q46" value="a">A. 5–10 mL</label>
+      <label class="option" data-q="46" data-opt="b"><input type="radio" name="q46" value="b">B. 30–100 mL</label>
+      <label class="option" data-q="46" data-opt="c"><input type="radio" name="q46" value="c">C. 150–200 mL</label>
+      <label class="option" data-q="46" data-opt="d"><input type="radio" name="q46" value="d">D. 250–300 mL</label>
+
+      <div id="result46" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q48. A pediatric dose may be approximately:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="47" data-opt="a"><input type="radio" name="q47" value="a">A. 10 mL/kg</label>
+      <label class="option" data-q="47" data-opt="b"><input type="radio" name="q47" value="b">B. 2 mL/kg</label>
+      <label class="option" data-q="47" data-opt="c"><input type="radio" name="q47" value="c">C. 0.1 mL/kg</label>
+      <label class="option" data-q="47" data-opt="d"><input type="radio" name="q47" value="d">D. 20 mL/kg</label>
+
+      <div id="result47" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q49. The nephrogram phase demonstrates:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="48" data-opt="a"><input type="radio" name="q48" value="a">A. Bladder neck reflux</label>
+      <label class="option" data-q="48" data-opt="b"><input type="radio" name="q48" value="b">B. Opacified kidney parenchyma early after injection</label>
+      <label class="option" data-q="48" data-opt="c"><input type="radio" name="q48" value="c">C. Only the urethra</label>
+      <label class="option" data-q="48" data-opt="d"><input type="radio" name="q48" value="d">D. Residual urine after voiding</label>
+
+      <div id="result48" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q50. A good urinary image should show clearly outlined kidneys, lower liver border, and:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="49" data-opt="a"><input type="radio" name="q49" value="a">A. Heart apex</label>
+      <label class="option" data-q="49" data-opt="b"><input type="radio" name="q49" value="b">B. Spleen hilum</label>
+      <label class="option" data-q="49" data-opt="c"><input type="radio" name="q49" value="c">C. Lateral margin of the psoas muscles</label>
+      <label class="option" data-q="49" data-opt="d"><input type="radio" name="q49" value="d">D. Femoral necks</label>
+
+      <div id="result49" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q51. An abdominal compression band should be avoided because it may:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="50" data-opt="a"><input type="radio" name="q50" value="a">A. Improve ureteral filling too much</label>
+      <label class="option" data-q="50" data-opt="b"><input type="radio" name="q50" value="b">B. Interfere with passage of fluid through the ureters</label>
+      <label class="option" data-q="50" data-opt="c"><input type="radio" name="q50" value="c">C. Lower radiation dose excessively</label>
+      <label class="option" data-q="50" data-opt="d"><input type="radio" name="q50" value="d">D. Cause adrenal calcification</label>
+
+      <div id="result50" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q52. Motion control is improved by:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="51" data-opt="a"><input type="radio" name="q51" value="a">A. Longer exposure time</label>
+      <label class="option" data-q="51" data-opt="b"><input type="radio" name="q51" value="b">B. Short exposure time and patient cooperation</label>
+      <label class="option" data-q="51" data-opt="c"><input type="radio" name="q51" value="c">C. Asking patient to breathe deeply</label>
+      <label class="option" data-q="51" data-opt="d"><input type="radio" name="q51" value="d">D. Using compression over abdomen</label>
+
+      <div id="result51" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q53. Contrast may start to appear in the renal pelvis after about:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="52" data-opt="a"><input type="radio" name="q52" value="a">A. 2–8 minutes</label>
+      <label class="option" data-q="52" data-opt="b"><input type="radio" name="q52" value="b">B. 20–30 seconds only</label>
+      <label class="option" data-q="52" data-opt="c"><input type="radio" name="q52" value="c">C. 45 minutes</label>
+      <label class="option" data-q="52" data-opt="d"><input type="radio" name="q52" value="d">D. 2 hours</label>
+
+      <div id="result52" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q54. The greatest contrast density in the kidneys usually occurs at:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="53" data-opt="a"><input type="radio" name="q53" value="a">A. 1–2 minutes</label>
+      <label class="option" data-q="53" data-opt="b"><input type="radio" name="q53" value="b">B. 5 minutes</label>
+      <label class="option" data-q="53" data-opt="c"><input type="radio" name="q53" value="c">C. 15–20 minutes</label>
+      <label class="option" data-q="53" data-opt="d"><input type="radio" name="q53" value="d">D. 60 minutes</label>
+
+      <div id="result53" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q55. Support under the knees during IVU helps mainly to:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="54" data-opt="a"><input type="radio" name="q54" value="a">A. Raise the kidneys</label>
+      <label class="option" data-q="54" data-opt="b"><input type="radio" name="q54" value="b">B. Reduce lumbar lordosis</label>
+      <label class="option" data-q="54" data-opt="c"><input type="radio" name="q54" value="c">C. Increase bladder pressure</label>
+      <label class="option" data-q="54" data-opt="d"><input type="radio" name="q54" value="d">D. Move the liver upward</label>
+
+      <div id="result54" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q56. The purpose of ureteral compression is to:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="55" data-opt="a"><input type="radio" name="q55" value="a">A. Expand renal pelvis and calyces</label>
+      <label class="option" data-q="55" data-opt="b"><input type="radio" name="q55" value="b">B. Block renal blood flow</label>
+      <label class="option" data-q="55" data-opt="c"><input type="radio" name="q55" value="c">C. Reduce patient discomfort only</label>
+      <label class="option" data-q="55" data-opt="d"><input type="radio" name="q55" value="d">D. Compress the bladder neck</label>
+
+      <div id="result55" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q57. The compression device is centered approximately at the:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="56" data-opt="a"><input type="radio" name="q56" value="a">A. Symphysis pubis</label>
+      <label class="option" data-q="56" data-opt="b"><input type="radio" name="q56" value="b">B. Xiphoid process</label>
+      <label class="option" data-q="56" data-opt="c"><input type="radio" name="q56" value="c">C. ASIS</label>
+      <label class="option" data-q="56" data-opt="d"><input type="radio" name="q56" value="d">D. Coccyx tip</label>
+
+      <div id="result56" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q58. Which is a contraindication to ureteral compression?</div>
+        <div class="diff">Hard</div>
+      </div>
+
+      <label class="option" data-q="57" data-opt="a"><input type="radio" name="q57" value="a">A. Routine uncomplicated study</label>
+      <label class="option" data-q="57" data-opt="b"><input type="radio" name="q57" value="b">B. Abdominal aneurysm or recent surgery</label>
+      <label class="option" data-q="57" data-opt="c"><input type="radio" name="q57" value="c">C. Normal renal function</label>
+      <label class="option" data-q="57" data-opt="d"><input type="radio" name="q57" value="d">D. Need for better calyceal filling</label>
+
+      <div id="result57" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q59. A normal BUN range given is:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="58" data-opt="a"><input type="radio" name="q58" value="a">A. 0.6–1.5 mg/100 mL</label>
+      <label class="option" data-q="58" data-opt="b"><input type="radio" name="q58" value="b">B. 8–25 mg/100 mL</label>
+      <label class="option" data-q="58" data-opt="c"><input type="radio" name="q58" value="c">C. 30–60 mg/100 mL</label>
+      <label class="option" data-q="58" data-opt="d"><input type="radio" name="q58" value="d">D. 1–2 L/day</label>
+
+      <div id="result58" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q60. A normal creatinine range given is:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="59" data-opt="a"><input type="radio" name="q59" value="a">A. 8–25 mg/100 mL</label>
+      <label class="option" data-q="59" data-opt="b"><input type="radio" name="q59" value="b">B. 2–8 mg/100 mL</label>
+      <label class="option" data-q="59" data-opt="c"><input type="radio" name="q59" value="c">C. 0.6–1.5 mg/100 mL</label>
+      <label class="option" data-q="59" data-opt="d"><input type="radio" name="q59" value="d">D. 5–10 mg/100 mL</label>
+
+      <div id="result59" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q61. Common contraindications to excretory urography include:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="60" data-opt="a"><input type="radio" name="q60" value="a">A. Kidney failure and allergy history</label>
+      <label class="option" data-q="60" data-opt="b"><input type="radio" name="q60" value="b">B. Mild back pain only</label>
+      <label class="option" data-q="60" data-opt="c"><input type="radio" name="q60" value="c">C. Urethral stricture only</label>
+      <label class="option" data-q="60" data-opt="d"><input type="radio" name="q60" value="d">D. Low urine output after drinking water</label>
+
+      <div id="result60" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q62. A typical IVU imaging sequence includes:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="61" data-opt="a"><input type="radio" name="q61" value="a">A. Immediate, 5, 10, and 15–20 minute images</label>
+      <label class="option" data-q="61" data-opt="b"><input type="radio" name="q61" value="b">B. Only a single 24-hour film</label>
+      <label class="option" data-q="61" data-opt="c"><input type="radio" name="q61" value="c">C. Every minute for 60 minutes</label>
+      <label class="option" data-q="61" data-opt="d"><input type="radio" name="q61" value="d">D. Scout film only</label>
+
+      <div id="result61" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q63. A post-void image is obtained mainly to assess:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="62" data-opt="a"><input type="radio" name="q62" value="a">A. Residual urine</label>
+      <label class="option" data-q="62" data-opt="b"><input type="radio" name="q62" value="b">B. Gallstones</label>
+      <label class="option" data-q="62" data-opt="c"><input type="radio" name="q62" value="c">C. Ureteral length</label>
+      <label class="option" data-q="62" data-opt="d"><input type="radio" name="q62" value="d">D. Adrenal size</label>
+
+      <div id="result62" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q64. Trendelenburg position for urinary imaging lowers the head by:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="63" data-opt="a"><input type="radio" name="q63" value="a">A. 5°</label>
+      <label class="option" data-q="63" data-opt="b"><input type="radio" name="q63" value="b">B. 10°</label>
+      <label class="option" data-q="63" data-opt="c"><input type="radio" name="q63" value="c">C. 15–20°</label>
+      <label class="option" data-q="63" data-opt="d"><input type="radio" name="q63" value="d">D. 35–40°</label>
+
+      <div id="result63" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q65. A prone urinary projection is helpful in demonstrating the:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="64" data-opt="a"><input type="radio" name="q64" value="a">A. Ureteropelvic junction</label>
+      <label class="option" data-q="64" data-opt="b"><input type="radio" name="q64" value="b">B. Heart border</label>
+      <label class="option" data-q="64" data-opt="c"><input type="radio" name="q64" value="c">C. Splenic flexure</label>
+      <label class="option" data-q="64" data-opt="d"><input type="radio" name="q64" value="d">D. Femoral head</label>
+
+      <div id="result64" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q66. A lateral urinary projection may help demonstrate:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="65" data-opt="a"><input type="radio" name="q65" value="a">A. Tumor, calculi, or rotation/pressure displacement of a kidney</label>
+      <label class="option" data-q="65" data-opt="b"><input type="radio" name="q65" value="b">B. Only bladder neck</label>
+      <label class="option" data-q="65" data-opt="c"><input type="radio" name="q65" value="c">C. Only adrenal glands</label>
+      <label class="option" data-q="65" data-opt="d"><input type="radio" name="q65" value="d">D. Only urethral tears</label>
+
+      <div id="result65" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q67. Is retrograde urography physiologic?</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="66" data-opt="a"><input type="radio" name="q66" value="a">A. Yes</label>
+      <label class="option" data-q="66" data-opt="b"><input type="radio" name="q66" value="b">B. No</label>
+      <label class="option" data-q="66" data-opt="c"><input type="radio" name="q66" value="c">C. Only in children</label>
+      <label class="option" data-q="66" data-opt="d"><input type="radio" name="q66" value="d">D. Only with nonionic contrast</label>
+
+      <div id="result66" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q68. Approximately how much contrast is used to fill an average normal renal pelvis in retrograde study?</div>
+        <div class="diff">Hard</div>
+      </div>
+
+      <label class="option" data-q="67" data-opt="a"><input type="radio" name="q67" value="a">A. 0.5–1 mL</label>
+      <label class="option" data-q="67" data-opt="b"><input type="radio" name="q67" value="b">B. 3–5 mL</label>
+      <label class="option" data-q="67" data-opt="c"><input type="radio" name="q67" value="c">C. 10–15 mL</label>
+      <label class="option" data-q="67" data-opt="d"><input type="radio" name="q67" value="d">D. 20–25 mL</label>
+
+      <div id="result67" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q69. In retrograde pyelography, lowering the head of the table may help to:</div>
+        <div class="diff">Hard</div>
+      </div>
+
+      <label class="option" data-q="68" data-opt="a"><input type="radio" name="q68" value="a">A. Prevent contrast from escaping into the ureters</label>
+      <label class="option" data-q="68" data-opt="b"><input type="radio" name="q68" value="b">B. Increase bowel gas</label>
+      <label class="option" data-q="68" data-opt="c"><input type="radio" name="q68" value="c">C. Show bladder diverticula only</label>
+      <label class="option" data-q="68" data-opt="d"><input type="radio" name="q68" value="d">D. Raise the diaphragm</label>
+
+      <div id="result68" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q70. Indications for cystography include:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="69" data-opt="a"><input type="radio" name="q69" value="a">A. Bladder trauma, reflux, and recurrent lower UTI</label>
+      <label class="option" data-q="69" data-opt="b"><input type="radio" name="q69" value="b">B. Only renal tumors</label>
+      <label class="option" data-q="69" data-opt="c"><input type="radio" name="q69" value="c">C. Only adrenal abnormalities</label>
+      <label class="option" data-q="69" data-opt="d"><input type="radio" name="q69" value="d">D. Only bowel obstruction</label>
+
+      <div id="result69" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q71. A contraindication to cystography is mainly related to:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="70" data-opt="a"><input type="radio" name="q70" value="a">A. Catheterization issues</label>
+      <label class="option" data-q="70" data-opt="b"><input type="radio" name="q70" value="b">B. Kidney mobility</label>
+      <label class="option" data-q="70" data-opt="c"><input type="radio" name="q70" value="c">C. Liver enlargement</label>
+      <label class="option" data-q="70" data-opt="d"><input type="radio" name="q70" value="d">D. Psoas shadow loss</label>
+
+      <div id="result70" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q72. For AP axial bladder projection, the CR is angled:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="71" data-opt="a"><input type="radio" name="q71" value="a">A. 10–15° cephalad</label>
+      <label class="option" data-q="71" data-opt="b"><input type="radio" name="q71" value="b">B. 10–15° caudad</label>
+      <label class="option" data-q="71" data-opt="c"><input type="radio" name="q71" value="c">C. 30° cephalad</label>
+      <label class="option" data-q="71" data-opt="d"><input type="radio" name="q71" value="d">D. Perpendicular always</label>
+
+      <div id="result71" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q73. For PA axial bladder projection, the CR is angled:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="72" data-opt="a"><input type="radio" name="q72" value="a">A. 10–15° cephalad</label>
+      <label class="option" data-q="72" data-opt="b"><input type="radio" name="q72" value="b">B. 10–15° caudad</label>
+      <label class="option" data-q="72" data-opt="c"><input type="radio" name="q72" value="c">C. 45° caudad</label>
+      <label class="option" data-q="72" data-opt="d"><input type="radio" name="q72" value="d">D. 5° cephalad only</label>
+
+      <div id="result72" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q74. A micturating cystography study is mainly used for:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="73" data-opt="a"><input type="radio" name="q73" value="a">A. Detecting reflux during voiding</label>
+      <label class="option" data-q="73" data-opt="b"><input type="radio" name="q73" value="b">B. Showing adrenal hormones</label>
+      <label class="option" data-q="73" data-opt="c"><input type="radio" name="q73" value="c">C. Measuring BUN</label>
+      <label class="option" data-q="73" data-opt="d"><input type="radio" name="q73" value="d">D. Demonstrating psoas margins</label>
+
+      <div id="result73" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q75. Indications for ascending urethrography include:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="74" data-opt="a"><input type="radio" name="q74" value="a">A. Strictures and urethral tears</label>
+      <label class="option" data-q="74" data-opt="b"><input type="radio" name="q74" value="b">B. Gallstones and hydronephrosis</label>
+      <label class="option" data-q="74" data-opt="c"><input type="radio" name="q74" value="c">C. Liver masses and reflux only</label>
+      <label class="option" data-q="74" data-opt="d"><input type="radio" name="q74" value="d">D. Renal cortical thinning only</label>
+
+      <div id="result74" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q76. Contraindications to ascending urethrography include:</div>
+        <div class="diff">Hard</div>
+      </div>
+
+      <label class="option" data-q="75" data-opt="a"><input type="radio" name="q75" value="a">A. Renal hypertension and diabetes</label>
+      <label class="option" data-q="75" data-opt="b"><input type="radio" name="q75" value="b">B. Acute UTI and recent instrumentation</label>
+      <label class="option" data-q="75" data-opt="c"><input type="radio" name="q75" value="c">C. Kidney stones only</label>
+      <label class="option" data-q="75" data-opt="d"><input type="radio" name="q75" value="d">D. Low-residue diet</label>
+
+      <div id="result75" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q77. A staghorn calculus is best described as a:</div>
+        <div class="diff">Easy</div>
+      </div>
+
+      <label class="option" data-q="76" data-opt="a"><input type="radio" name="q76" value="a">A. Small rounded phlebolith</label>
+      <label class="option" data-q="76" data-opt="b"><input type="radio" name="q76" value="b">B. Large branching renal stone</label>
+      <label class="option" data-q="76" data-opt="c"><input type="radio" name="q76" value="c">C. Bladder diverticulum</label>
+      <label class="option" data-q="76" data-opt="d"><input type="radio" name="q76" value="d">D. Ureteric fistula</label>
+
+      <div id="result76" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q78. Hydronephrosis refers to:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="77" data-opt="a"><input type="radio" name="q77" value="a">A. Pelvicalyceal system dilation</label>
+      <label class="option" data-q="77" data-opt="b"><input type="radio" name="q77" value="b">B. Bladder wall rupture</label>
+      <label class="option" data-q="77" data-opt="c"><input type="radio" name="q77" value="c">C. Adrenal enlargement</label>
+      <label class="option" data-q="77" data-opt="d"><input type="radio" name="q77" value="d">D. Prostate calcification</label>
+
+      <div id="result77" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q79. Delayed imaging in hydronephrosis may continue for:</div>
+        <div class="diff">Hard</div>
+      </div>
+
+      <label class="option" data-q="78" data-opt="a"><input type="radio" name="q78" value="a">A. 30 minutes only</label>
+      <label class="option" data-q="78" data-opt="b"><input type="radio" name="q78" value="b">B. 1–2 hours only</label>
+      <label class="option" data-q="78" data-opt="c"><input type="radio" name="q78" value="c">C. 4–6 hours and occasionally up to 24 hours</label>
+      <label class="option" data-q="78" data-opt="d"><input type="radio" name="q78" value="d">D. Never beyond 20 minutes</label>
+
+      <div id="result78" class="result"></div>
+    </div>
+    
+    <div class="question">
+      <div class="topline">
+        <div class="qtext">Q80. Percutaneous nephrostomy is:</div>
+        <div class="diff">Medium</div>
+      </div>
+
+      <label class="option" data-q="79" data-opt="a"><input type="radio" name="q79" value="a">A. Drainage catheter insertion into the kidney collecting system</label>
+      <label class="option" data-q="79" data-opt="b"><input type="radio" name="q79" value="b">B. A retrograde bladder study</label>
+      <label class="option" data-q="79" data-opt="c"><input type="radio" name="q79" value="c">C. An oral contrast test</label>
+      <label class="option" data-q="79" data-opt="d"><input type="radio" name="q79" value="d">D. A type of bowel preparation</label>
+
+      <div id="result79" class="result"></div>
+    </div>
+    
+  </form>
+
+  <div class="controls">
+    <button type="button" class="submit-btn" onclick="submitQuiz()">Submit Exam</button>
+    <button type="button" class="reset-btn" onclick="resetQuiz()">Reset</button>
+    <div id="scoreBox" class="scorebox"></div>
+  </div>
+</div>
+
+<script>
+const questions = [
+{d:'Easy', q:'Where are the kidneys located?', a:'Intraperitoneal', b:'Retroperitoneal', c:'Pelvic cavity', d1:'Thoracic cavity', correct:'b'},
+{d:'Easy', q:'The upper pole of the kidney is approximately at which vertebral level?', a:'L1', b:'T12', c:'L3', d1:'T10', correct:'b'},
+{d:'Easy', q:'The lower pole of the kidney is approximately at which vertebral level?', a:'T12', b:'L5', c:'L3', d1:'L1', correct:'c'},
+{d:'Easy', q:'Which kidney is normally lower?', a:'Left kidney', b:'Both are equal', c:'Right kidney', d1:'Depends on respiration only', correct:'c'},
+{d:'Easy', q:'Average urine output per day is:', a:'250–500 mL', b:'1–2 L', c:'3–4 L', d1:'5–6 L', correct:'b'},
+{d:'Medium', q:'Which is a normal function of the kidneys?', a:'Produce bile', b:'Remove waste and regulate fluid/electrolytes', c:'Store urine', d1:'Secrete insulin', correct:'b'},
+{d:'Easy', q:'The ureter is divided into which three parts?', a:'Renal, vesical, urethral', b:'Abdominal, pelvic, intramural', c:'Upper, middle, distal only', d1:'Cortical, medullary, pelvic', correct:'b'},
+{d:'Easy', q:'The ureter enters the bladder at the level of the:', a:'Iliac crest', b:'ASIS', c:'Pubic symphysis', d1:'Ischial spine', correct:'d'},
+{d:'Easy', q:'The bladder lies:', a:'Anterior and inferior to pubic symphysis', b:'Posterior and superior to pubic symphysis', c:'Inside the ureter', d1:'At the level of T12', correct:'b'},
+{d:'Easy', q:'The urethral orifice is located in the:', a:'Renal pelvis', b:'Prostate only', c:'Bladder neck', d1:'Major calyx', correct:'c'},
+{d:'Medium', q:'The right kidney is slightly lower mainly because of the:', a:'Spleen', b:'Liver', c:'Pancreas', d1:'Duodenum', correct:'b'},
+{d:'Medium', q:'The ureter lies ______ to the psoas muscle.', a:'Anterior', b:'Posterior', c:'Medial', d1:'Inferior', correct:'a'},
+{d:'Medium', q:'Relative to the transverse processes of the lumbar spine, the ureter lies:', a:'Posterior and medial', b:'Anterior and lateral', c:'Only lateral', d1:'Directly superior', correct:'b'},
+{d:'Medium', q:'The ureters enter the bladder on its:', a:'Anterior surface', b:'Inferior apex', c:'Posterolateral superior surface', d1:'Superior dome centrally', correct:'c'},
+{d:'Easy', q:'The adrenal glands are located around the level of:', a:'T11', b:'L3', c:'T12', d1:'S1', correct:'a'},
+{d:'Easy', q:'The shapes of the adrenal glands are best described as:', a:'Right semilunar, left triangular', b:'Both triangular', c:'Right triangular, left semilunar', d1:'Both round', correct:'c'},
+{d:'Easy', q:'Can the adrenal glands usually be seen on plain radiographs?', a:'Yes, clearly', b:'Only in children', c:'Only after contrast', d1:'No', correct:'d'},
+{d:'Medium', q:'The adrenal medulla secretes:', a:'Cortical hormones', b:'Epinephrine', c:'Insulin', d1:'Aldosterone only', correct:'b'},
+{d:'Medium', q:'The adrenal cortex secretes:', a:'Cortical hormones', b:'Epinephrine', c:'Contrast media', d1:'Urine', correct:'a'},
+{d:'Easy', q:'The male urethra is approximately:', a:'4 cm long', b:'8 cm long', c:'15–20 cm long', d1:'25–30 cm long', correct:'c'},
+{d:'Easy', q:'The female urethra is approximately:', a:'2 cm long', b:'4 cm long', c:'10 cm long', d1:'15 cm long', correct:'b'},
+{d:'Medium', q:'The male urethra extends from the bladder through the ______ to the external orifice.', a:'Ureter', b:'Prostate gland', c:'Renal pelvis', d1:'Seminal vesicle', correct:'b'},
+{d:'Easy', q:'The renal cortex is the:', a:'Inner collecting system', b:'Outer layer', c:'Ureteral opening', d1:'Bladder wall', correct:'b'},
+{d:'Easy', q:'The renal medulla is the:', a:'Outer fibrous capsule', b:'Inner region containing pyramids', c:'Bladder trigone', d1:'Distal ureter', correct:'b'},
+{d:'Medium', q:'Urine flow through the collecting system is:', a:'Major calyx → minor calyx → pelvis → ureter', b:'Minor calyx → major calyx → pelvis → ureter', c:'Pelvis → minor calyx → major calyx → ureter', d1:'Minor calyx → pelvis → major calyx → ureter', correct:'b'},
+{d:'Easy', q:'A plain KUB is mainly used to assess:', a:'Cardiac size', b:'Kidney size, shape, position, and stones/calcifications', c:'Lung bases only', d1:'Brain ventricles', correct:'b'},
+{d:'Medium', q:'A phlebolith is a:', a:'Stone in the renal pelvis', b:'Rounded calcification within a vein', c:'Calcified adrenal gland', d1:'Bladder diverticulum', correct:'b'},
+{d:'Easy', q:'An upright urinary projection may be used to demonstrate:', a:'Mobility of the kidneys', b:'Adrenal enlargement only', c:'Gallbladder contraction', d1:'Nephron anatomy', correct:'a'},
+{d:'Medium', q:'Antegrade urography usually introduces contrast:', a:'Orally', b:'Through the rectum', c:'Intravenously in a physiologic direction', d1:'By bladder catheter', correct:'c'},
+{d:'Medium', q:'Retrograde urography introduces contrast by:', a:'Catheter and is non-physiologic', b:'IV bolus and is physiologic', c:'Oral administration', d1:'Intramuscular injection', correct:'a'},
+{d:'Easy', q:'Cystography evaluates the:', a:'Kidney cortex', b:'Bladder', c:'Adrenal glands', d1:'Psoas muscle', correct:'b'},
+{d:'Medium', q:'Cystoureterography demonstrates the:', a:'Bladder and ureter', b:'Ureter and kidney only', c:'Bladder and urethra', d1:'Nephron and pelvis', correct:'a'},
+{d:'Medium', q:'Cystourethrography demonstrates the:', a:'Bladder and urethra', b:'Only the ureter', c:'Kidney and bladder', d1:'Only adrenal glands', correct:'a'},
+{d:'Easy', q:'Dietary preparation before many urinary studies is:', a:'High residue diet for 3 days', b:'Low residue diet for 1–2 days', c:'No preparation ever', d1:'High protein diet', correct:'b'},
+{d:'Easy', q:'A laxative is commonly taken:', a:'One week before', b:'Immediately after contrast', c:'The day before the exam', d1:'Only during the exam', correct:'c'},
+{d:'Easy', q:'Patients are usually kept NPO:', a:'After breakfast', b:'After midnight', c:'Only 2 hours before', d1:'Not required', correct:'b'},
+{d:'Medium', q:'Why is dehydration undesirable before IVU?', a:'It improves the pyelogram too much', b:'It increases risk of renal failure', c:'It prevents contrast excretion completely in all cases', d1:'It causes bladder rupture', correct:'b'},
+{d:'Medium', q:'Why is bowel preparation usually not attempted in infants and children?', a:'They do not have bowel gas', b:'Risk of dehydration', c:'Their kidneys are not retroperitoneal', d1:'Because compression is impossible', correct:'b'},
+{d:'Medium', q:'A prone position can help because it:', a:'Moves bowel gas away from pelvicalyceal structures', b:'Always improves bladder detail only', c:'Eliminates the need for contrast', d1:'Raises the kidneys into the thorax', correct:'a'},
+{d:'Medium', q:'Dehydration may produce a more ______ pyelogram.', a:'Dilute', b:'Dense', c:'Invisible', d1:'Delayed only', correct:'b'},
+{d:'Medium', q:'Hydration may result in a ______ image because of urine/contrast dilution.', a:'Denser', b:'Sharper', c:'Diluted', d1:'Magnified', correct:'c'},
+{d:'Easy', q:'Common needle sizes mentioned for injection include:', a:'8–10 G only', b:'16–18 G or 19–22 G', c:'24–26 G only', d1:'30–32 G only', correct:'b'},
+{d:'Easy', q:'Which of the following is an injection supply?', a:'Tourniquet', b:'Lead apron only', c:'Cervical collar', d1:'Barium cup', correct:'a'},
+{d:'Medium', q:'Before injection, the radiographer should check:', a:'Allergy history, labs, and possible pregnancy', b:'Blood group only', c:'Lung function only', d1:'Visual acuity only', correct:'a'},
+{d:'Medium', q:'Why should the patient be monitored after iodinated contrast injection?', a:'To check bowel movement', b:'Because adverse reactions may occur', c:'To prevent nephrogram formation', d1:'To reduce motion blur', correct:'b'},
+{d:'Easy', q:'An example of nonionic iodinated contrast media is:', a:'Barium sulfate', b:'Iohexol', c:'Gadolinium only', d1:'Air', correct:'b'},
+{d:'Easy', q:'A typical adult contrast dose listed is approximately:', a:'5–10 mL', b:'30–100 mL', c:'150–200 mL', d1:'250–300 mL', correct:'b'},
+{d:'Easy', q:'A pediatric dose may be approximately:', a:'10 mL/kg', b:'2 mL/kg', c:'0.1 mL/kg', d1:'20 mL/kg', correct:'b'},
+{d:'Medium', q:'The nephrogram phase demonstrates:', a:'Bladder neck reflux', b:'Opacified kidney parenchyma early after injection', c:'Only the urethra', d1:'Residual urine after voiding', correct:'b'},
+{d:'Medium', q:'A good urinary image should show clearly outlined kidneys, lower liver border, and:', a:'Heart apex', b:'Spleen hilum', c:'Lateral margin of the psoas muscles', d1:'Femoral necks', correct:'c'},
+{d:'Medium', q:'An abdominal compression band should be avoided because it may:', a:'Improve ureteral filling too much', b:'Interfere with passage of fluid through the ureters', c:'Lower radiation dose excessively', d1:'Cause adrenal calcification', correct:'b'},
+{d:'Easy', q:'Motion control is improved by:', a:'Longer exposure time', b:'Short exposure time and patient cooperation', c:'Asking patient to breathe deeply', d1:'Using compression over abdomen', correct:'b'},
+{d:'Medium', q:'Contrast may start to appear in the renal pelvis after about:', a:'2–8 minutes', b:'20–30 seconds only', c:'45 minutes', d1:'2 hours', correct:'a'},
+{d:'Medium', q:'The greatest contrast density in the kidneys usually occurs at:', a:'1–2 minutes', b:'5 minutes', c:'15–20 minutes', d1:'60 minutes', correct:'c'},
+{d:'Medium', q:'Support under the knees during IVU helps mainly to:', a:'Raise the kidneys', b:'Reduce lumbar lordosis', c:'Increase bladder pressure', d1:'Move the liver upward', correct:'b'},
+{d:'Medium', q:'The purpose of ureteral compression is to:', a:'Expand renal pelvis and calyces', b:'Block renal blood flow', c:'Reduce patient discomfort only', d1:'Compress the bladder neck', correct:'a'},
+{d:'Medium', q:'The compression device is centered approximately at the:', a:'Symphysis pubis', b:'Xiphoid process', c:'ASIS', d1:'Coccyx tip', correct:'c'},
+{d:'Hard', q:'Which is a contraindication to ureteral compression?', a:'Routine uncomplicated study', b:'Abdominal aneurysm or recent surgery', c:'Normal renal function', d1:'Need for better calyceal filling', correct:'b'},
+{d:'Medium', q:'A normal BUN range given is:', a:'0.6–1.5 mg/100 mL', b:'8–25 mg/100 mL', c:'30–60 mg/100 mL', d1:'1–2 L/day', correct:'b'},
+{d:'Medium', q:'A normal creatinine range given is:', a:'8–25 mg/100 mL', b:'2–8 mg/100 mL', c:'0.6–1.5 mg/100 mL', d1:'5–10 mg/100 mL', correct:'c'},
+{d:'Medium', q:'Common contraindications to excretory urography include:', a:'Kidney failure and allergy history', b:'Mild back pain only', c:'Urethral stricture only', d1:'Low urine output after drinking water', correct:'a'},
+{d:'Medium', q:'A typical IVU imaging sequence includes:', a:'Immediate, 5, 10, and 15–20 minute images', b:'Only a single 24-hour film', c:'Every minute for 60 minutes', d1:'Scout film only', correct:'a'},
+{d:'Medium', q:'A post-void image is obtained mainly to assess:', a:'Residual urine', b:'Gallstones', c:'Ureteral length', d1:'Adrenal size', correct:'a'},
+{d:'Easy', q:'Trendelenburg position for urinary imaging lowers the head by:', a:'5°', b:'10°', c:'15–20°', d1:'35–40°', correct:'c'},
+{d:'Medium', q:'A prone urinary projection is helpful in demonstrating the:', a:'Ureteropelvic junction', b:'Heart border', c:'Splenic flexure', d1:'Femoral head', correct:'a'},
+{d:'Medium', q:'A lateral urinary projection may help demonstrate:', a:'Tumor, calculi, or rotation/pressure displacement of a kidney', b:'Only bladder neck', c:'Only adrenal glands', d1:'Only urethral tears', correct:'a'},
+{d:'Easy', q:'Is retrograde urography physiologic?', a:'Yes', b:'No', c:'Only in children', d1:'Only with nonionic contrast', correct:'b'},
+{d:'Hard', q:'Approximately how much contrast is used to fill an average normal renal pelvis in retrograde study?', a:'0.5–1 mL', b:'3–5 mL', c:'10–15 mL', d1:'20–25 mL', correct:'b'},
+{d:'Hard', q:'In retrograde pyelography, lowering the head of the table may help to:', a:'Prevent contrast from escaping into the ureters', b:'Increase bowel gas', c:'Show bladder diverticula only', d1:'Raise the diaphragm', correct:'a'},
+{d:'Medium', q:'Indications for cystography include:', a:'Bladder trauma, reflux, and recurrent lower UTI', b:'Only renal tumors', c:'Only adrenal abnormalities', d1:'Only bowel obstruction', correct:'a'},
+{d:'Medium', q:'A contraindication to cystography is mainly related to:', a:'Catheterization issues', b:'Kidney mobility', c:'Liver enlargement', d1:'Psoas shadow loss', correct:'a'},
+{d:'Medium', q:'For AP axial bladder projection, the CR is angled:', a:'10–15° cephalad', b:'10–15° caudad', c:'30° cephalad', d1:'Perpendicular always', correct:'b'},
+{d:'Medium', q:'For PA axial bladder projection, the CR is angled:', a:'10–15° cephalad', b:'10–15° caudad', c:'45° caudad', d1:'5° cephalad only', correct:'a'},
+{d:'Medium', q:'A micturating cystography study is mainly used for:', a:'Detecting reflux during voiding', b:'Showing adrenal hormones', c:'Measuring BUN', d1:'Demonstrating psoas margins', correct:'a'},
+{d:'Medium', q:'Indications for ascending urethrography include:', a:'Strictures and urethral tears', b:'Gallstones and hydronephrosis', c:'Liver masses and reflux only', d1:'Renal cortical thinning only', correct:'a'},
+{d:'Hard', q:'Contraindications to ascending urethrography include:', a:'Renal hypertension and diabetes', b:'Acute UTI and recent instrumentation', c:'Kidney stones only', d1:'Low-residue diet', correct:'b'},
+{d:'Easy', q:'A staghorn calculus is best described as a:', a:'Small rounded phlebolith', b:'Large branching renal stone', c:'Bladder diverticulum', d1:'Ureteric fistula', correct:'b'},
+{d:'Medium', q:'Hydronephrosis refers to:', a:'Pelvicalyceal system dilation', b:'Bladder wall rupture', c:'Adrenal enlargement', d1:'Prostate calcification', correct:'a'},
+{d:'Hard', q:'Delayed imaging in hydronephrosis may continue for:', a:'30 minutes only', b:'1–2 hours only', c:'4–6 hours and occasionally up to 24 hours', d1:'Never beyond 20 minutes', correct:'c'},
+{d:'Medium', q:'Percutaneous nephrostomy is:', a:'Drainage catheter insertion into the kidney collecting system', b:'A retrograde bladder study', c:'An oral contrast test', d1:'A type of bowel preparation', correct:'a'},
+
+];
+
+function clearStyles(){
+  document.querySelectorAll('.option').forEach(el=>{
+    el.classList.remove('correct-option','wrong-option');
+  });
+}
+
+function submitQuiz(){
+  clearStyles();
+  let score = 0;
+
+  questions.forEach((item, i) => {
+    const chosen = document.querySelector(`input[name="q${i}"]:checked`);
+    const result = document.getElementById(`result${i}`);
+    const correctLabel = document.querySelector(`.option[data-q="${i}"][data-opt="${item.correct}"]`);
+    if(correctLabel) correctLabel.classList.add('correct-option');
+
+    if(!chosen){
+      result.innerHTML = `<span class="wrong">No answer selected.</span> <span class="correct">Correct answer: ${item.correct.toUpperCase()}</span>`;
+      return;
+    }
+
+    if(chosen.value === item.correct){
+      score++;
+      result.innerHTML = `<span class="correct">Correct. Answer: ${item.correct.toUpperCase()}</span>`;
+    } else {
+      const chosenLabel = document.querySelector(`.option[data-q="${i}"][data-opt="${chosen.value}"]`);
+      if(chosenLabel) chosenLabel.classList.add('wrong-option');
+      result.innerHTML = `<span class="wrong">Wrong.</span> <span class="correct">Correct answer: ${item.correct.toUpperCase()}</span>`;
+    }
+  });
+
+  const scoreBox = document.getElementById('scoreBox');
+  scoreBox.style.display = 'block';
+  scoreBox.textContent = `Score: ${score} / ${questions.length}`;
+  window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+}
+
+function resetQuiz(){
+  document.getElementById('quiz').reset();
+  clearStyles();
+  questions.forEach((item, i) => {
+    document.getElementById(`result${i}`).innerHTML = '';
+  });
+  const scoreBox = document.getElementById('scoreBox');
+  scoreBox.style.display = 'none';
+  scoreBox.textContent = '';
+  window.scrollTo({top: 0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
